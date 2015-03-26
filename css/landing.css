@@ -1,0 +1,230 @@
+html, body {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    width:100%;
+    opacity: 1;
+    height:100%;
+}
+a:link {
+    color: #000000;
+    text-decoration: none;
+}
+a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+div.nav {
+  width: 100%;
+  height: 30px;
+   opacity: 0.85;
+  background-color: black;
+  color: white;
+}
+div.ul
+{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  text-align: center;
+
+  background-color:FF0000;
+  padding: 0px;
+
+}
+
+div.ur
+{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+
+  text-align: center;
+  background-color:66CCFF;
+  padding: 0px;
+}
+div.bl
+{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  right:50%;
+    text-align: center;
+    background-color:9900FF;
+    padding: 0px;
+}
+div.br
+{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    text-align: center;
+    background-color:CC9900;
+    padding: 0px;
+}
+div.ourWork
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  background-color:1F8765;
+}
+div.innerWork {
+  width: 75%;
+  height: 75%;
+  position: absolute;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  background-color:82A197;
+  top: 12.5%;
+  left: 12.5%;
+  right:12.5%;
+  bottom: 12.5%;
+}
+
+
+div.abtMe
+{
+  width: 50%;
+  height: 100%;
+  position: relative;
+
+    text-align: center;
+    background-color:A74A33;
+    padding: 0px;
+}
+div.ourValues
+{
+  width: 50%;
+  height: 100%;
+  position: relative;
+  top: -100%;
+  left:50%;
+
+    text-align: center;
+    background-color:377A87;
+    padding: 0px;
+}
+
+div.circle {
+  z-index: 1;
+  border-radius: 50%; 
+  background-color: white;
+  width: 200px;
+  opacity: 0.75;
+  text-align: center;
+  border: 2px solid black;
+
+  height: 200px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+ 
+}
+div.wrapper {
+  width:30%;
+  height:30%;
+  opacity: 1;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+}
+.inDiv-Center {
+  width: 75%;
+  height: 75%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.inDiv-Centera {
+  width: 75%;
+  height: 75%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.Absolute-Left {
+  width: 50%;
+  color: #000000;
+  height: 50%;
+  margin: auto;
+  text-align: left;
+
+}
+.Absolute-Center {
+  width: 50%;
+  color: #000000;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.Absolute-Centerd {
+  width: 50%;
+  color: #000000;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+
+  top: -20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.Absolute-Centerded {
+  width: 50%;
+  color: #000000;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+
+  top: 25%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.Absolute-Centerdeded {
+  width: 50%;
+  color: #000000;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+
+  top: 25%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.middleContainer {
+  width: 100%;
+  color: #000000;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+
+  top: 0;
+  bottom: -25%;
+  left: 0;
+  right: 0;
+}
