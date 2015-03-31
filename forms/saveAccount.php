@@ -6,10 +6,15 @@ $_accountType = $_POST[type];
 $_remove = $_POST[remove];
 $_alter = $_POST[submitBtn];
 
+$_SESSION['user'] = $_POST['user'];
+$_SESSION['password'] = $_POST['pass'];
+
+print $_SESSION['user'];
+
+$query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AND password = '$_SESSION[password]'") or die(mysql_error());
+$row = mysql_fetch_array($query);
 if($_alter == 'Save New Account') {
-	$query = mysql_query("INSERT INTO accounts (account_name, account_type) VALUES ('$_accountName', '$_accountType')");
-	echo '<center><a href="home.php"></a></center>';
-	echo "Entered new account successfully\n";
+	$query1 = mysql_query("INSERT INTO accounts (username, account_name, account_type, balance) VALUES ('".$row[email]."', '$_accountName', '$_accountType', 0)");
 }
 if($_alter == 'Remove Selected Account') {
 	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_remove'");

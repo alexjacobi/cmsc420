@@ -32,40 +32,38 @@ function confirmation() {
 <ul class="nav nav-tabs" role="tablist">
   <li><a href="home.php">Home</a></li>
 </ul><center>
-  <h1>Add New Account</h1>
+  <h1>Add New Transaction</h1>
 </center>
 <div class="content-main">
 <center>
 <form action="forms/saveAccount.php" method="post">
   <div class="form-group">
-    <label for="name1">Account Name:</label>
-    <input type="text" class="form-control" name="name1" placeholder="Enter New Account Name">
-  </div>
-   <select name="type">
-    <option value="">Select Account Type</option>
-    <option value="save">Savings</option>
-    <option value="check">Checking</option>
-    <option value="CD">Certificate of Deposit</option>
-    <option value="MM">Money Market</option>
-    <option value="CC">Credit Card</option>
+  <label>Transaction Type</label><br>
+  <select name="type">
+    <option value="">Select Transaction Type</option>
+    <option value="income">Income</option>
+    <option value="spend">Spending </option>
+    <option value="transfer">Transfer</option>
 </select><br>
 <br>
-  <input name="submitBtn" type="submit" value="Save New Account">
+<label for="name1">Transaction Amount:</label>
+    <input type="text" class="form-control" name="name" placeholder="Enter Transaction Amount">
+<br>
+<div class="form-group">
+  <label for="date">Transaction Date:</label><br>
+  <input type="Date" name="date"></input><br>
+</div>
+  <label>Comments:</label><br />
+  <textarea name=comment id=comment></textarea><br><br>
+  <input name="submitBtn" type="submit" value="Add New Transaction">
   <center>
-    <h1>Remove Account</h1>
+    <h1>Edit Account Name</h1>
   </center>
-  ';
-  $query2 = mysql_query("SELECT DISTINCT account_name FROM accounts ORDER BY account_type;") or die(mysql_error());
-  echo "<select id='remove' name='remove'>";
-    echo "<option value=''>Select Account to Remove</option>";
-    while ($row = mysql_fetch_array($query2)) {
-        echo "<option value='" . $row['account_name'] . "'>" . $row['account_name'] . "</option>";
-    }
-  echo "</select>";
-  echo '
+  <label for="name1">New Name:</label>
+    <input type="text" class="form-control" name="name" placeholder="Enter New Account Name">
   <p>
   <p>
-  <input name="submitBtn" type="submit" onclick="confirmation()" value="Remove Selected Account">
+  <input name="submitBtn" type="submit" value="Submit">
 </form>
 </div>
 </div>
