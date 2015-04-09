@@ -12,6 +12,13 @@ if ($row['email']) {
   echo '<html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script>
+var p = {
+                deleteRow: function(row) {
+                document.getElementById("mytable").deleteRow(row.rowIndex);
+                }
+            };
+</script>
 </head>
 <body>
 <div class="container-fluid">
@@ -30,31 +37,37 @@ if ($row['email']) {
 </ul>
 <center>
 <div class="well">
-<h3>Transactions</h3>
+<h3>"$_accountName"</h3>
 </center>
 </div>
 <div class="row">
 <div class="center-block">
-<table class="table table-condensed">
+<table id="mytable" class="table table-condensed">
 <tr>
-<td><p class="text-center">Account Name</p></td>
-<td><p class="text-center">Transaction Amount</p></td>
-<td><p class="text-center">Transaction Type</p></td>
 <td><p class="text-center">Date</p></td>
+<td><p class="text-center">Type</p></td>
+<td><p class="text-center">Category</p></td>
+<td><p class="text-center">Comments/Payee</p></td>
+<td><p class="text-center">Amount</p></td>
+<td><p class="text-center">Balance</p></td>
 </tr>';
 
 $table_query = mysql_query("SELECT * FROM transactions where account_name='$_accountName'");
 while ($row = mysql_fetch_array($table_query)) {
-    $j_query = mysql_query("SELECT * FROM jobs where id = '$row[id]'" );
-  $tgrow = mysql_fetch_array($j_query);
   echo '<tr>';
-  echo '<td><p class="text-center"><small>'.$row[account_name].'</small></p></td>';
-  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
-  echo '<td><p class="text-center"><small>'.$row[transaction_type].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[date].'</small></p></td>';
-  echo '<td><p class="text-center"><small>';
+  echo '<td><p class="text-center"><small>'.$row[transaction_type].'</small></p></td>';
+  echo '<td><p class="text-center"><small>'.$row[category].'</small></p></td>';
+  echo '<td><p class="text-center"><small>'.$row[payee_comments].'</small></p></td>';
+  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
+  echo '<td><p class="text-center"><small></small></p></td>';
+  echo '<td><p class="text-center"><small><br>';
 }
 
+echo' 
+<div style="text-align:center">
+  <input type="button" onClick="myFunction()" value="Add New Transaction">
+</div>';
 echo '
 </table>
 </div>
