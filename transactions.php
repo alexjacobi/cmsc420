@@ -18,6 +18,9 @@ var p = {
                 document.getElementById("mytable").deleteRow(row.rowIndex);
                 }
             };
+function myFunction() {
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><small><input type=text></small></p></td><td><small><input type=text></small></p></td><td><small><input type=text></small></p></td><td><small><input type=text></small></td><td><small><input type=text></small></td><td><small><input type=text></small></td><td><small><br></tr>";
+}
 </script>
 </head>
 <body>
@@ -36,8 +39,13 @@ var p = {
 
 </ul>
 <center>
-<div class="well">
-<h3>"$_accountName"</h3>
+';
+$query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AND password = '$_SESSION[password]'") or die(mysql_error());
+$row = mysql_fetch_array($query);
+
+echo '<div class="well">
+<h3>'.$row['first_name'].' '.$row['last_name']; 
+echo'</h3>
 </center>
 </div>
 <div class="row">
@@ -61,7 +69,7 @@ while ($row = mysql_fetch_array($table_query)) {
   echo '<td><p class="text-center"><small>'.$row[payee_comments].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
   echo '<td><p class="text-center"><small></small></p></td>';
-  echo '<td><p class="text-center"><small><br>';
+  echo '<td><p class="text-center"><small><br></tr>';
 }
 
 echo' 
