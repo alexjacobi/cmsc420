@@ -7,7 +7,7 @@ $query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AN
 $row = mysql_fetch_array($query);
 
 $_accountName = $_GET['id'];
-
+$_SESSION['account_name'] = $_accountName;
 if ($row['email']) {
   echo '<html>
 <head>
@@ -19,7 +19,7 @@ var p = {
                 }
             };
 function myFunction() {
-  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><small><input type=text></small></p></td><td><small><input type=text></small></p></td><td><small><input type=text></small></p></td><td><small><input type=text></small></td><td><small><input type=text></small></td><td><small><input type=text></small></td><td><small><br></tr>";
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><input type=text size=12 name=date></td><td><input type=text size=12 name=type></td><td><input type=text size=12 name=category></td><td><input type=text size=12 name=comments></td><td><input type=text size=12 name=amount></td><td><input type=submit value=add></td></tr></table></form>";
 }
 </script>
 </head>
@@ -50,6 +50,7 @@ echo'</h3>
 </div>
 <div class="row">
 <div class="center-block">
+<form method=POST action=forms/add_trans.php>
 <table id="mytable" class="table table-condensed">
 <tr>
 <td><p class="text-center">Date</p></td>
@@ -67,17 +68,12 @@ while ($row = mysql_fetch_array($table_query)) {
   echo '<td><p class="text-center"><small>'.$row[transaction_type].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[category].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[payee_comments].'</small></p></td>';
-  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
-  echo '<td><p class="text-center"><small></small></p></td>';
-  echo '<td><p class="text-center"><small><br></tr>';
+  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td></tr>';
 }
-
-echo' 
-<div style="text-align:center">
-  <input type="button" onClick="myFunction()" value="Add New Transaction">
-</div>';
 echo '
-</table>
+</div>
+<div style="text-align:center">
+  <input type="button" onClick="myFunction()" value="Add Transaction">
 </div>
 <ul class="nav navbar-fixed-bottom">
 <center>
