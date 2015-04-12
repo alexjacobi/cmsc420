@@ -14,9 +14,7 @@ $_SESSION['password'] = $_POST['pass'];
 else {
 
   header('Refresh:2; url=login.php');
-  echo 'Invalid Password. You are now being redirected to the login page.';
-  //echo "SELECT * FROM userTable where email = '".$_POST['user']."' AND password = '".$_POST['pass']."' ";
-  //header('Location: login.php'); 
+  echo 'The email and/or password entered could not be found. Please try again. You will be redirected back to the log in page';
   session_destroy();
 }
   
