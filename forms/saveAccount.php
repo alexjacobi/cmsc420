@@ -6,7 +6,9 @@ $_accountName = $_POST[name1];
 $_accountType = $_POST[type];
 $_remove = $_POST[remove];
 $_alter = $_POST[submitBtn];
+$_new = $_POST[name];
 
+$_accountName = $_SESSION['account_name'];
 $_SESSION['user'] = $_POST['user'];
 $_SESSION['password'] = $_POST['pass'];
 
@@ -20,6 +22,10 @@ if($_alter == 'Save New Account') {
 if($_alter == 'Remove Selected Account') {
 	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_remove'");
 }
+if($_alter == 'Submit') {
+	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_SESSION[user]' AND account_name = '$_accountName'");
+}
+
 
 
 

@@ -5,6 +5,8 @@ include "database.php";
 $con=mysql_connect($DB_HOST,$DB_USER,$DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error()); $db=mysql_select_db($DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
 $query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AND password = '$_SESSION[password]'") or die(mysql_error());
 $row = mysql_fetch_array($query);
+$acct_query = mysql_query("SELECT * FROM accounts where username='$_SESSION[user]' AND account_name='$_GET[id]'");
+$row1 = mysql_fetch_array($acct_query);
 
 $_accountName = $_GET['id'];
 $_SESSION['account_name'] = $_accountName;
@@ -44,7 +46,7 @@ $query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AN
 $row = mysql_fetch_array($query);
 
 echo '<div class="well">
-<h3>'.$row['first_name'].' '.$row['last_name']; 
+<h3>'.$row1['account_name'].' '; 
 echo'</h3>
 </center>
 </div>
@@ -68,7 +70,8 @@ while ($row = mysql_fetch_array($table_query)) {
   echo '<td><p class="text-center"><small>'.$row[transaction_type].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[category].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[payee_comments].'</small></p></td>';
-  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td></tr>';
+  echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
+  echo '<td><p class="text-center"><small>'.$row1[balance].'</small></p></td></tr>';
 }
 echo '
 </div>
