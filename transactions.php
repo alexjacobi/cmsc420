@@ -24,6 +24,19 @@ function myFunction() {
   document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><input type=text size=12 name=date></td><td><input type=text size=12 name=type></td><td><input type=text size=12 name=category></td><td><input type=text size=12 name=comments></td><td><input type=text size=12 name=amount></td><td><input type=submit value=add></td></tr></table></form>";
 }
 </script>
+<script type="text/javascript">
+function confirm_alert(node) {
+    return confirm("This transaction will now be deleted.");
+}
+</script>
+
+<script type="text/javascript">
+function changeContent(){
+    var x=document.getElementById("myTable").rows
+    var y=x[0].cells
+    y[0].innerHTML="NEW CONTENT"
+}
+</script>
 </head>
 <body>
 <div class="container-fluid">
@@ -48,7 +61,8 @@ $row = mysql_fetch_array($query);
 echo '<div class="well">
 <h3>'.$row1['account_name'].' '; 
 echo'</h3>
-</center>
+<li><a href="accountSettings.php">Change Account Name</a></li>
+</div>
 </div>
 <div class="row">
 <div class="center-block">
@@ -61,9 +75,11 @@ echo'</h3>
 <td><p class="text-center">Comments/Payee</p></td>
 <td><p class="text-center">Amount</p></td>
 <td><p class="text-center">Balance</p></td>
+<td><p class="text-center">Options</p></td>
+
 </tr>';
 
-$table_query = mysql_query("SELECT * FROM transactions where account_name='$_accountName'");
+$table_query = mysql_query("SELECT * FROM transactions where account_name='$_accountName' ORDER BY date");
 while ($row = mysql_fetch_array($table_query)) {
   echo '<tr>';
   echo '<td><p class="text-center"><small>'.$row[date].'</small></p></td>';
@@ -71,18 +87,15 @@ while ($row = mysql_fetch_array($table_query)) {
   echo '<td><p class="text-center"><small>'.$row[category].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[payee_comments].'</small></p></td>';
   echo '<td><p class="text-center"><small>'.$row[amount].'</small></p></td>';
-  echo '<td><p class="text-center"><small>'.$row1[balance].'</small></p></td></tr>';
+  echo '<td><p class="text-center"><small>'.$row[current_balance].'</small></p></td>';
+  echo '<td><p class="text-center"><small><a href="" onclick="changeContent(this)" value="Change content">Edit </a></small>|<small><a href="forms\delete_trans.php?id='.$row[id].'" onclick="return confirm_alert(this);"> Delete</a></small></p></td></tr>';
 }
 echo '
 </div>
 <div style="text-align:center">
   <input type="button" onClick="myFunction()" value="Add Transaction">
 </div>
-<ul class="nav navbar-fixed-bottom">
-<center>
-        <li><a href="accountSettings.php">Account Options</a></li></center>
-        </ul>
-</div>
+
 </div>
 </div>
 </div>
