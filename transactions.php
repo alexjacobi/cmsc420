@@ -89,7 +89,8 @@ function changeContent(){
         echo '<td><p class="text-center"><small>' . $row[payee_comments] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[amount] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[current_balance] . '</small></p></td>';
-        echo '<td><p class="text-center"><small><a href="" onclick="changeContent(this)" value="Change content">Edit </a></small>|<small><a href="forms\delete_trans.php?id=' . $row[id] . '" onclick="return confirm_alert(this);"> Delete</a></small></p></td></tr>';
+        echo '<td><p class="text-center"><small><a href="" onclick="changeContent()" value="Change content">Edit </a></small>|<small><a href="forms\delete_trans.php?id=' . $row[id] . '" onclick="return confirm_alert(this);"> Delete</a></small></p></td>
+        </tr>';
     }
     echo '
 </div>
