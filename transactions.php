@@ -22,7 +22,7 @@ var p = {
                 }
             };
 function myFunction() {
-  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><input type=text size=12 name=date></td><td><input type=text size=12 name=type></td><td><input type=text size=12 name=category></td><td><input type=text size=12 name=comments></td><td><input type=text size=12 name=amount></td><td><input type=submit value=add></td></tr></table></form>";
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=text size=12 name=date></center></td><td><center><input type=text size=12 name=type></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr></table></form>";
 }
 </script>
 <script type="text/javascript">
