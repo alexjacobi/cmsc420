@@ -31,9 +31,7 @@ echo '
         echo "<li><a href='transactions.php?id=" . $row['account_name'] . "'>" . $row['account_name'] . "</a></li>";
         
     }
-  echo "</select>";
   echo '
-
 </ul>
 <div class="row">
 <center>
@@ -41,10 +39,19 @@ echo '
 <div class="well">
 <h3>Welcome '.$row['first_name'].'</h3>
 </div>
-</center>
-From here you can either add new accounts or view existing accounts by selecting a tab avove.</br>
-<a href="addNewAccount.php">Add/Delete Accounts<br>
-<a href="reports.php">View Financial Reports
+</center>';
+echo '<table class="table table-condensed" style="width: auto;"><tr><td>Account name</td><td>Balance</td></tr>';
+$query2 = mysql_query("SELECT * FROM accounts ORDER BY account_type;") or die(mysql_error());
+$sum = 0;
+    while ($row = mysql_fetch_array($query2)) {
+        echo "<tr><td>"."<a href='transactions.php?id=" . $row['account_name'] . "'>" . $row['account_name'] . "</a>"."</td>"."<td>$".$row['balance']."</td></tr>";
+        $sum = $sum + $row['balance'];
+    }
+echo '<tr><td>Total:</td><td>$'.$sum.'</td></tr>';
+echo '</table>';
+echo 'From here you can either add new accounts or view existing accounts by selecting a tab avove.</br>
+<a href="addNewAccount.php">Add/Delete Accounts</a><br>
+<a href="reports.php">View Financial Reports</a>
 </center>
 </div>
 <ul class="nav navbar-fixed-bottom">
