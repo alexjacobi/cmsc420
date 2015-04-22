@@ -9,12 +9,9 @@ $_alter = $_POST[submitBtn];
 $_new = $_POST[name];
 
 $_accountName = $_SESSION['account_name'];
-$_SESSION['user'] = $_POST['user'];
-$_SESSION['password'] = $_POST['pass'];
+$_user = $_SESSION['user'];
 
-print $_SESSION['user'];
-
-$query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]'") or die(mysql_error());
+$query = mysql_query("SELECT * FROM usertable where email = '$_user'") or die(mysql_error());
 $row = mysql_fetch_array($query);
 if($_alter == 'Save New Account') {
 	$query1 = mysql_query("INSERT INTO accounts (username, account_name, account_type, balance) VALUES ('".$row[email]."', '$_accountName', '$_accountType', 0)");
@@ -23,7 +20,8 @@ if($_alter == 'Remove Selected Account') {
 	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_remove'");
 }
 if($_alter == 'Submit') {
-	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_SESSION[user]' AND account_name = '$_accountName'");
+	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_accountName'");
+	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_accountName'");
 }
 
 
