@@ -21,7 +21,7 @@ if($_alter == 'Remove Selected Account') {
 }
 if($_alter == 'Submit') {
 	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_accountName'");
-	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_accountName'");
+	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_accountName '");
 }
 
 
