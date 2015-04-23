@@ -43,11 +43,11 @@ function confirmation() {
   </div>
    <select name="type">
     <option value="">Select Account Type</option>
-    <option value="save">Savings</option>
-    <option value="check">Checking</option>
-    <option value="CD">Certificate of Deposit</option>
-    <option value="MM">Money Market</option>
-    <option value="CC">Credit Card</option>
+    <option value="Savings">Savings</option>
+    <option value="Checking">Checking</option>
+    <option value="Certificate of Deposit">Certificate of Deposit</option>
+    <option value="Money Market">Money Market</option>
+    <option value="Credit Card">Credit Card</option>
 </select><br>
 <br>
   <input name="submitBtn" type="submit" value="Save New Account">

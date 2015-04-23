@@ -26,10 +26,9 @@ echo '
 <ul class="nav nav-tabs" role="tablist">
   <li><a href="home.php">Home</a></li>
   ';
-  $query2 = mysql_query("SELECT DISTINCT account_name FROM accounts ORDER BY account_type;") or die(mysql_error());
+  $query2 = mysql_query("SELECT * FROM accounts WHERE username = '$_SESSION[user]';") or die(mysql_error());
     while ($row = mysql_fetch_array($query2)) {
-        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "'>" . $row['account_name'] . "</a></li>";
-        
+        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "&" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a></li>";
     }
   echo '
 </ul>
