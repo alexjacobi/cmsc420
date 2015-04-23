@@ -34,7 +34,7 @@ function confirm_alert(node) {
 <script type="text/javascript">
 function changeContent(i){
     var x=document.getElementById(i).getElementsByTagName("td");
-    document.getElementById(i).innerHTML = "<tr id="+i+"><td><center><input type=text size=12 name=date value="+"></center></td><td><center><input type=text size=12 name=type></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
+    document.getElementById(i).innerHTML = "<tr id="+i+"><td><center><input type=text size=12 name=date value="+x[0].innerText+"></center></td><td><center><input type=text size=12 name=type value="+x[1].innerText+"></center></td><td><center><input type=text size=12 name=category value="+x[2].innerText+"></center></td><td><center><input type=text size=12 name=comments value="+x[3].innerText+"></center></td><td><center><input type=text size=12 name=amount value="+x[4].innerText+"></center></td><td><center><input type=submit value=add></center></td></tr>";
 }
 </script>
 </head>

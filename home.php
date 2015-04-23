@@ -6,7 +6,6 @@ if (empty($_SESSION['user'])) {
 $_SESSION['user'] = $_POST['user'];
 $_SESSION['password'] = $_POST['pass'];
 }
-  
 $query = mysql_query("SELECT * FROM usertable where email = '$_SESSION[user]' AND password = '$_SESSION[password]'") or die(mysql_error());
 $row = mysql_fetch_array($query);
 
