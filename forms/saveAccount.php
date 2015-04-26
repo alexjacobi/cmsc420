@@ -9,6 +9,7 @@ $_alter = $_POST[submitBtn];
 $_new = $_POST[name];
 $_user = $_SESSION['user'];
 $_old = $_SESSION['account_name'];
+$_type = $_SESSION['account_Type'];
 
 $query = mysql_query("SELECT * FROM accounts where username = '$_user' AND account_name = '$_accountName'") or die(mysql_error());
 
@@ -25,15 +26,14 @@ if($_alter == 'Remove Selected Account') {
 	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_old'");
 	$query5 = mysql_query("DELETE FROM transactions WHERE account_name = '$_old' AND username = '$_user'");
 }
-$result = mysql_query("SELECT * FROM accounts WHERE username = '$_user' AND account_name = '$_new' AND account_type = '$_accountType'");
-die(mysql_num_rows($result));
+$result = mysql_query("SELECT * FROM accounts WHERE username = '$_user' AND account_name = '$_new' AND account_type = '$_type'");
 if($_alter == 'Submit' && mysql_num_rows($result) == 0) {
 	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 }
 else{
 	header('Refresh: 5; URL=../accountSettings.php');
-	die("There already exists an account with that name. You will now be redirected back to the previous page.");
+	die("There already exists an account with that name and type. You will now be redirected back to the previous page.");
 }
 
 

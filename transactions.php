@@ -11,6 +11,7 @@ $row1       = mysql_fetch_array($acct_query);
 
 $_accountName             = $_GET['id'];
 $_SESSION['account_name'] = $_accountName;
+$_SESSION['account_Type'] = $_GET['type'];
 if ($row['email']) {
     echo '<html>
 <head>
@@ -46,7 +47,7 @@ function changeContent(i){
   ';
     $query2 = mysql_query("SELECT * FROM accounts WHERE username = '$_SESSION[user]'") or die(mysql_error());
     while ($row = mysql_fetch_array($query2)) {
-        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "&" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a></li>";
+        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "&type=" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a></li>";
         
     }
     echo "</select>";

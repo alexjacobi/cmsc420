@@ -4,7 +4,8 @@ session_start();
 $con=mysql_connect($DB_HOST,$DB_USER,$DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error()); $db=mysql_select_db($DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
 
 $_accountName = $_SESSION['account_name'];
-$_SESSION['account_name'] = $_accountName;
+$_accountType = $_SESSION['account_Type'];
+
 
 if (empty($_SESSION['user'])) {
 $_SESSION['user'] = $_POST['user'];
