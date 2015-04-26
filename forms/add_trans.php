@@ -18,9 +18,14 @@ if($_POST[type] == 'Spending'){
 	$_amount = $_POST[amount] * -1;
 	$_current = $row[balance] + $_amount;
 }
-
+if ($_POST[t] == 'edit') {
+	mysql_query("DELETE FROM transactions where id='".$_POST[id]."'");
+	mysql_query("INSERT into transactions (username, account_name, transaction_type, amount, date, payee_comments, category, current_balance) values ('".$_SESSION['user']."',"."'".$_SESSION['account_name']."'".","."'".$_POST[type]."'".", '$_amount',"."'".$_POST[date]."'".","."'".$_POST[comments]."'".","."'".$_POST[category]."', $_current)");
+	mysql_query("UPDATE accounts SET balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$_SESSION[account_name]'");
+}
+else {
 mysql_query("INSERT into transactions (username, account_name, transaction_type, amount, date, payee_comments, category, current_balance) values ('".$_SESSION['user']."',"."'".$_SESSION['account_name']."'".","."'".$_POST[type]."'".", '$_amount',"."'".$_POST[date]."'".","."'".$_POST[comments]."'".","."'".$_POST[category]."', $_current)");
 mysql_query("UPDATE accounts SET balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$_SESSION[account_name]'");
-
+}
 header('Location: ../transactions.php?id='.$_SESSION[account_name]); 
 ?>
