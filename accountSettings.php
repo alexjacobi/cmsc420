@@ -28,6 +28,17 @@ function confirmation() {
   }
 }
 </script>
+<script type="text/javascript">
+function confirmation() {
+  var answer = confirm("Remove Selected Account")
+  if (answer){
+    window.location = "forms/saveAccount.php";
+  }
+  else{
+    window.location = "addNewAccount.php";
+  }
+}
+</script>
 </head>
 <body>
 <div class="container-fluid">
@@ -47,6 +58,13 @@ function confirmation() {
   <p>
   <p>
   <input name="submitBtn" type="submit" value="Submit">
+
+<center>
+    <h1>Remove Account</h1>
+  </center>
+  <p>
+  <p>
+  <input name="submitBtn" type="submit" onclick="confirmation()" value="Remove Selected Account">
 </form>
 </div>
 </div>
