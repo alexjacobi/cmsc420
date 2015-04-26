@@ -15,7 +15,7 @@ $query = mysql_query("SELECT * FROM accounts where username = '$_user' AND accou
 while($row = mysql_fetch_array($query)){
 	if($_accountName == $row[account_name] && $_accountType ==  $row[account_type]) {
 		header('Refresh: 5; URL=../addNewAccount.php');
-		die("The account name and type you entered is already in use. You will now e redirected back to the previous screen.");
+		die("The account name and type you entered is already in use. You will now be redirected back to the previous screen.");
 	}
 }
 if($_alter == 'Save New Account') {
@@ -25,9 +25,15 @@ if($_alter == 'Remove Selected Account') {
 	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_old'");
 	$query5 = mysql_query("DELETE FROM transactions WHERE account_name = '$_old' AND username = '$_user'");
 }
-if($_alter == 'Submit') {
+$result = mysql_query("SELECT * FROM accounts WHERE username = '$_user' AND account_name = '$_new' AND account_type = '$_accountType'");
+die(mysql_num_rows($result));
+if($_alter == 'Submit' && mysql_num_rows($result) == 0) {
 	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
+}
+else{
+	header('Refresh: 5; URL=../accountSettings.php');
+	die("There already exists an account with that name. You will now be redirected back to the previous page.");
 }
 
 

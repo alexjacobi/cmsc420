@@ -27,7 +27,7 @@ echo '
   ';
   $query2 = mysql_query("SELECT * FROM accounts WHERE username = '$_SESSION[user]';") or die(mysql_error());
     while ($row = mysql_fetch_array($query2)) {
-        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "&" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a></li>";
+        echo "<li><a href='transactions.php?id=" . $row['account_name'] . "&type=" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a></li>";
     }
   echo '
 </ul>
