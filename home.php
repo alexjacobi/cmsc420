@@ -42,7 +42,7 @@ echo '<table class="table table-condensed" style="width: auto;"><tr><td>Account 
 $query2 = mysql_query("SELECT * FROM accounts ORDER BY account_type;") or die(mysql_error());
 $sum = 0;
     while ($row = mysql_fetch_array($query2)) {
-        echo "<tr><td>"."<a href='transactions.php?id=" . $row['account_name'] . "'>" . $row['account_name'] . "</a>"."</td>"."<td>$".$row['balance']."</td></tr>";
+        echo "<tr><td>"."<a href='transactions.php?id=" . $row['account_name'] . "&type=" . $row['account_type'] . "'>" . $row['account_name'] . " " . $row['account_type'] . "</a>"."</td>"."<td>$".$row['balance']."</td></tr>";
         $sum = $sum + $row['balance'];
     }
 echo '<tr><td>Total:</td><td>$'.$sum.'</td></tr>';

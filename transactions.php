@@ -60,7 +60,7 @@ function changeContent(i){
     $row = mysql_fetch_array($query);
     
     echo '<div class="well">
-<h3>' . $row1['account_name'] . ' ';
+<h3>' . $row1['account_name'].' '.$row1['account_type'].' ';
     echo '</h3>
 <li><a href="accountSettings.php">Change Account Name</a></li>
 </div>
