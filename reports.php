@@ -27,16 +27,14 @@ if ($row['email']) {
 </center>
 <div class="content-main">
 <center>
-<form action="forms/saveAccount.php" method="post">
+<form action="forms/viewReport.php" method="post">
   <div class="form-group">
     <label for="name1">What type of report would you like to view?</label>
   </div>
    <select name="type">
     <option value="">Select Report Type</option>
-    <option value="balance">Balance </option>
-    <option value="income">Income</option>
-    <option value="st">Spending Transaction</option>
-    <option value="sa">Spending Analysis</option>
+    <option value="Income">Income</option>
+    <option value="st">Spending</option>
     </select><br>
 <br>
 <div class="form-group">
