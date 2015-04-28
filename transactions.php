@@ -17,15 +17,22 @@ if ($row['email']) {
 <head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script>
-var p = {
-                deleteRow: function(row) {
-                document.getElementById("mytable").deleteRow(row.rowIndex);
-                }
-            };
-function myFunction() {
-  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=text size=12 name=date></center></td><td><center><input type=text size=12 name=type></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
+    function changeMenu() {
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=Date name=date></center></td><td><center><select name=type><option value=>Select Transaction Type</option><option value=Income>Income</option><option value=Spending>Spending</option><option value=Transfer>Transfer</option></select></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
 }
 </script>
+
+<script>
+var p = {
+    deleteRow: function(row) {
+    document.getElementById("mytable").deleteRow(row.rowIndex);
+    }
+};
+function myFunction() {
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=Date name=date></center></td><td><center><select name=type><option value=>Select Transaction Type</option><option value=Income>Income</option><option value=Spending>Spending</option><option value=Transfer>Transfer</option></select></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
+}
+</script>
+
 <script type="text/javascript">
 function confirm_alert(node) {
     return confirm("This transaction will now be deleted.");
@@ -62,7 +69,7 @@ function changeContent(i){
     echo '<div class="well">
 <h3>' . $row1['account_name'].' '.$row1['account_type'].' ';
     echo '</h3>
-<li><a href="accountSettings.php">Change Account Name</a></li>
+<a href="accountSettings.php">More Options</a>
 </div>
 </div>
 <div class="row">
@@ -94,6 +101,7 @@ function changeContent(i){
     }
     echo '
     </table></form>
+
 </div>
 <div id="asdf"></div>
 <div style="text-align:center">

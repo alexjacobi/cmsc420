@@ -20,16 +20,16 @@ while($row = mysql_fetch_array($query)){
 	}
 }
 if($_alter == 'Save New Account') {
-	$query1 = mysql_query("INSERT INTO accounts (username, account_name, account_type, balance) VALUES ('$_user', '$_accountName', '$_accountType', 0)");
+	mysql_query("INSERT INTO accounts (username, account_name, account_type, balance) VALUES ('$_user', '$_accountName', '$_accountType', 0)");
 }
 if($_alter == 'Remove Selected Account') {
-	$query2 = mysql_query("DELETE FROM accounts WHERE account_name = '$_old'");
-	$query5 = mysql_query("DELETE FROM transactions WHERE account_name = '$_old' AND username = '$_user'");
+	mysql_query("DELETE FROM accounts WHERE account_name = '$_old'");
+	mysql_query("DELETE FROM transactions WHERE account_name = '$_old' AND username = '$_user'");
 }
 $result = mysql_query("SELECT * FROM accounts WHERE username = '$_user' AND account_name = '$_new' AND account_type = '$_type'");
 if($_alter == 'Submit' && mysql_num_rows($result) == 0) {
-	$query3 = mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
-	$query4 = mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
+	mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
+	mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 }
 else{
 	header('Refresh: 5; URL=../accountSettings.php');
