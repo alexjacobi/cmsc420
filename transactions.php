@@ -87,14 +87,14 @@ function changeContent(i){
 
 </tr>';
     
-    $table_query = mysql_query("SELECT * FROM transactions where account_name='$_accountName' ORDER BY date");
+    $table_query = mysql_query("SELECT * FROM transactions where account_name='$_accountName' ORDER BY date desc");
     while ($row = mysql_fetch_array($table_query)) {
         echo '<tr id="'.$row[id].'">';
         echo '<td><p class="text-center"><small>' . $row[date] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[transaction_type] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[category] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[payee_comments] . '</small></p></td>';
-        echo '<td><p class="text-center"><small>' . $row[amount] . '</small></p></td>';
+        echo '<td><p class="text-center"><small>$' . $row[amount] . '</small></p></td>';
         echo '<td><p class="text-center"><small>' . $row[current_balance] . '</small></p></td>';
         echo '<td><p class="text-center"><small><a href="javascript:changeContent('.$row[id].')" value="Change content">Edit </a></small>|<small><a href="forms\delete_trans.php?id=' . $row[id] . '" onclick="return confirm_alert(this);"> Delete</a></small></p></td>
         </tr>';
