@@ -34,7 +34,8 @@ if ($row['email']) {
    <select name="type">
     <option value="">Select Report Type</option>
     <option value="Income">Income</option>
-    <option value="st">Spending</option>
+    <option value="Spending">Spending</option>
+    <option value="Analysis">Spending Analysis</option>
     </select><br>
 <br>
 <div class="form-group">

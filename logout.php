@@ -1,6 +1,5 @@
 <?php
 session_start();
 session_destroy();
-
-header('Location: http://impresstimation.com/login.php');  
+header('Location: /login.php');  
 ?>

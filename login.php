@@ -82,7 +82,7 @@ echo '
 </div>
 <div class="col1">
 <center>
-<h3>Financial Tool</h3>
+<h3>Money Smart</h3>
 <br><br><br>	
 <p>Welcome to our online financial tool where you can easily view and modify multiple financial accounts and check your transaction 
 history for each account.

@@ -14,6 +14,8 @@ $_type = $_SESSION['account_Type'];
 $query = mysql_query("SELECT * FROM accounts where username = '$_user' AND account_name = '$_accountName'") or die(mysql_error());
 
 while($row = mysql_fetch_array($query)){
+	print($_accountName);
+		die($row[account_name]);
 	if($_accountName == $row[account_name] && $_accountType ==  $row[account_type]) {
 		header('Refresh: 5; URL=../addNewAccount.php');
 		die("The account name and type you entered is already in use. You will now be redirected back to the previous screen.");
@@ -31,7 +33,7 @@ if($_alter == 'Submit' && mysql_num_rows($result) == 0) {
 	mysql_query("UPDATE accounts SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 	mysql_query("UPDATE transactions SET account_name = '$_new' WHERE username = '$_user' AND account_name = '$_old'");
 }
-else{
+if(mysql_num_rows($result) > 0){
 	header('Refresh: 5; URL=../accountSettings.php');
 	die("There already exists an account with that name and type. You will now be redirected back to the previous page.");
 }
