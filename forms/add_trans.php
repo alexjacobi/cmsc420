@@ -25,6 +25,7 @@ if($_POST[type] == 'Spending'){
 	mysql_query("DELETE FROM transactions where id='".$_POST[id]."'");
 	mysql_query("INSERT into transactions (username, account_name, transaction_type, amount, date, payee_comments, category, current_balance) values ('".$_SESSION['user']."',"."'".$_SESSION['account_name']."'".","."'".$_POST[type]."'".", '$_amount',"."'".$_POST[date]."'".","."'".$_POST[comments]."'".","."'".$_POST[category]."', $_current)");
 	mysql_query("UPDATE accounts SET balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$_SESSION[account_name]'");
+	mysql_query("UPDATE transactions SET current_balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$row[account_name]'");
 }
 else {
 if($_POST[type] == 'Income'){
