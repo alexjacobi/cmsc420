@@ -16,11 +16,14 @@ if($row[transaction_type] == 'Income'){
 	$_amount = $row[amount] * -1;
 	$_current = $row1[balance] + $_amount;
 	mysql_query("UPDATE accounts SET balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$row[account_name]'");
+	mysql_query("UPDATE transactions SET current_balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$row[account_name]'");
+
 }
 if($row[transaction_type] == 'Spending'){
 	$_amount = $row[amount] * -1;
 	$_current = $row1[balance] + $_amount;
 	mysql_query("UPDATE accounts SET balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$row[account_name]'");
+	mysql_query("UPDATE transactions SET current_balance = '$_current' WHERE username = '$_SESSION[user]' AND account_name = '$row[account_name]'");
 }
 mysql_query("DELETE FROM transactions WHERE id = '$_id'");
 header('Location: ../transactions.php?id='.$_SESSION[account_name]); 

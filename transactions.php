@@ -17,19 +17,13 @@ if ($row['email']) {
 <head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script>
-    function changeMenu() {
-  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=Date name=date></center></td><td><center><select name=type><option value=>Select Transaction Type</option><option value=Income>Income</option><option value=Spending>Spending</option><option value=Transfer>Transfer</option></select></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
-}
-</script>
-
-<script>
 var p = {
     deleteRow: function(row) {
     document.getElementById("mytable").deleteRow(row.rowIndex);
     }
 };
 function myFunction() {
-  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=Date name=date></center></td><td><center><select name=type><option value=>Select Transaction Type</option><option value=Income>Income</option><option value=Spending>Spending</option><option value=Transfer>Transfer</option></select></center></td><td><center><input type=text size=12 name=category></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
+  document.getElementById("mytable").innerHTML = document.getElementById("mytable").innerHTML + "<tr><td><center><input type=Date name=date></center></td><td><center><select name=type><option value=>Select Transaction Type</option><option value=Income>Income</option><option value=Spending>Spending</option><option value=Transfer>Transfer</option></select></center></td><td><center><select name=category><option value=>Income Categories:</option><option value=Salary>Salary</option><option value=Interest>Interest</option><option value=Bonus>Bonus</option><option value=Cash>Cash</option><option value=Gift>Gift</option><option value=Return>Return</option><option value=TaxReturn>TaxReturn</option><option value=Adjustments>Adjustments</option><option value=>Spending Categories</option><option value=Grocery>Grocery</option><option value=Mortgage>Mortgage</option><option value=Home>Home</option><option value=Child>Child</option><option value=Tuition>Tuition</option><option value=Health>Health</option><option value=Car>Car</option><option value=Entertainment>Entertainment</option><option value=Dinner>Dinner</option><option value=Clothing>Clothing</option><option value=Gifts>Gifts</option><option value=Adjustments>Adjustments</option><option value=Salary>Salary</option></select></center></td><td><center><input type=text size=12 name=comments></center></td><td><center><input type=text size=12 name=amount></center></td><td><center><input type=submit value=add></center></td></tr>";
 }
 </script>
 

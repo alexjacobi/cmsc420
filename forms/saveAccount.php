@@ -14,8 +14,6 @@ $_type = $_SESSION['account_Type'];
 $query = mysql_query("SELECT * FROM accounts where username = '$_user' AND account_name = '$_accountName'") or die(mysql_error());
 
 while($row = mysql_fetch_array($query)){
-	print($_accountName);
-		die($row[account_name]);
 	if($_accountName == $row[account_name] && $_accountType ==  $row[account_type]) {
 		header('Refresh: 5; URL=../addNewAccount.php');
 		die("The account name and type you entered is already in use. You will now be redirected back to the previous screen.");

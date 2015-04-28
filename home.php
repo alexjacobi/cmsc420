@@ -48,7 +48,7 @@ $sum = 0;
 echo '<tr><td>Total:</td><td>$'.$sum.'</td></tr>';
 echo '</table>';
 echo 'From here you can either add new accounts or view existing accounts by selecting a tab avove.</br>
-<a href="addNewAccount.php">Add/Delete Accounts</a><br>
+<a href="addNewAccount.php">Add Account</a><br>
 <a href="reports.php">View Financial Reports</a>
 </center>
 </div>
